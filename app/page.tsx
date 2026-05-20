@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
-import { projects } from "@/lib/projects";
+import { getAllProjects } from "@/lib/datocms";
 import { Separator } from "@/components/ui/separator";
 import { ThemePixelBlast } from "@/components/theme-pixel-blast";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getAllProjects();
+
   return (
     <main className="flex flex-col">
       {/* Opening Statement */}

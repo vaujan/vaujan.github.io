@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { projects, getProjectBySlug } from "@/lib/projects";
+import { getAllProjects, getProjectBySlug } from "@/lib/datocms";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -13,7 +13,11 @@ import {
 } from "@/components/ui/breadcrumb";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
+export const dynamicParams = true;
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -25,7 +29,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return { title: "Not Found" };
   return {
     title: `${project.name} — Ahmad Fauzan`,
@@ -39,7 +43,7 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) {
     notFound();
   }

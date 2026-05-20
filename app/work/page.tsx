@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/lib/projects";
+import { getAllProjects } from "@/lib/datocms";
 import { Separator } from "@/components/ui/separator";
 import {
   Breadcrumb,
@@ -11,7 +11,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const projects = await getAllProjects();
+
   return (
     <main className="flex flex-col">
       <section className="mx-auto w-full max-w-2xl px-6 pt-24 pb-16 md:px-8 md:pt-28 md:pb-20">

@@ -1,15 +1,27 @@
-export interface Project {
-  slug: string;
-  name: string;
-  type: string;
-  year: string;
-  description: string;
-  stack: string[];
-  body: string;
-  imageUrl: string;
+/**
+ * DatoCMS Migration Script
+ * Uses the official DatoCMS CMA client to create schema and migrate content.
+ *
+ * Run: bun run scripts/migrate-to-datocms.ts
+ */
+
+import { buildClient, LogLevel } from "@datocms/cma-client-node";
+
+const API_TOKEN = process.env.DATOCMS_API_TOKEN;
+const ENVIRONMENT = process.env.DATOCMS_ENVIRONMENT || undefined;
+
+if (!API_TOKEN) {
+  console.error("❌ DATOCMS_API_TOKEN is not set in .env");
+  process.exit(1);
 }
 
-export const projects: Project[] = [
+const client = buildClient({
+  apiToken: API_TOKEN,
+  environment: ENVIRONMENT,
+  logLevel: LogLevel.NONE,
+});
+
+const PROJECTS = [
   {
     slug: "meridian-design-system",
     name: "Meridian Design System",
@@ -28,7 +40,7 @@ export const projects: Project[] = [
 
 <h2>The approach</h2>
 
-<p>I started with primitives — <code>color</code>, <code>type</code>, <code>space</code>, and <code>shadow</code> tokens — then composed them into 40+ components. Each component is built on <strong>Radix UI</strong> primitives for accessibility, styled with Tailwind CSS, and documented in Storybook.</p>
+<p>I started with primitives — <code>color</code>, <code>type</code>, <code>space</code>, and <code>shadow</code> tokens — then composed them into 40+ components. Each component is built on <a href="#">Radix UI</a> primitives for accessibility, styled with Tailwind CSS, and documented in Storybook.</p>
 
 <h3>Key architectural decisions</h3>
 
@@ -55,7 +67,8 @@ export default function App() {
 }</code></pre>
 
 <p>Today, Meridian powers the UI of every product at the company. New teams spin up in hours, not weeks.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop",
   },
   {
     slug: "flux-workflow-engine",
@@ -80,7 +93,7 @@ export default function App() {
 <h3>Runtime features</h3>
 
 <ol>
-<li>Each node runs in an isolated sandbox (Node.js <code>isolated-vm</code>).</li>
+<li>Each node runs in an isolated sandbox (Node.js <code>vm2</code>).</li>
 <li>State is persisted to PostgreSQL with optimistic locking.</li>
 <li>WebSocket streams push real-time logs to the dashboard.</li>
 <li>Deployments are atomic — rollback on failure.</li>
@@ -109,7 +122,8 @@ export default function App() {
 }</code></pre>
 
 <p>Within three months of launch, Flux reached <strong>1,200+ GitHub stars</strong> and was featured on Hacker News. Today it processes over 2 million workflows per month.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
   },
   {
     slug: "atlas-knowledge-base",
@@ -123,7 +137,7 @@ export default function App() {
 
 <h2>Editor architecture</h2>
 
-<p>The heart of Atlas is a custom <strong>TipTap</strong> editor built on ProseMirror. We extended it with embeds, @mentions, and a slash-command palette that feels native.</p>
+<p>The heart of Atlas is a custom <a href="#">TipTap</a> editor built on ProseMirror. We extended it with embeds, @mentions, and a slash-command palette that feels native.</p>
 
 <blockquote>Documentation should live where work happens, not in a separate tab you forget to open.</blockquote>
 
@@ -160,7 +174,8 @@ model Page {
 }</code></pre>
 
 <p>Today, Atlas serves as the single source of truth for documentation across the engineering org. New hires ship their first doc within an hour.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=1200&h=800&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=1200&h=800&fit=crop",
   },
   {
     slug: "northstar-analytics",
@@ -211,7 +226,8 @@ func Evaluate(rule Rule, point Metric) (Alert, bool) {
 }</code></pre>
 
 <p>After deployment, client teams reduced their mean time to detection (MTTD) by <strong>40%</strong> and cut false-positive alerts by more than half.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
   },
   {
     slug: "signal-studio",
@@ -261,11 +277,170 @@ void main() {
   gl_FragColor = vec4(color, 1.0);
 }</code></pre>
 
-<p>Signal Studio was featured on <strong>Chrome Experiments</strong> and <strong>Codrops</strong>. It is now used by visual artists and musicians for live performances worldwide.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1200&h=800&fit=crop",
+<p>Signal Studio was featured on <a href="#">Chrome Experiments</a> and <a href="#">Codrops</a>. It is now used by visual artists and musicians for live performances worldwide.</p>`,
+    imageUrl:
+      "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1200&h=800&fit=crop",
   },
 ];
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug);
+/* ------------------------------------------------------------------ */
+// Main
+/* ------------------------------------------------------------------ */
+
+async function main() {
+  console.log("🚀 Starting DatoCMS migration...\n");
+
+  // 1. Delete existing project item type if it exists
+  console.log("🔍 Checking for existing 'project' item type...");
+  const existingItemTypes = await client.itemTypes.list();
+  const existingProject = existingItemTypes.find(
+    (it) => it.api_key === "project"
+  );
+
+  if (existingProject) {
+    console.log(`  Deleting existing item type: ${existingProject.id}`);
+    await client.itemTypes.destroy(existingProject.id);
+    console.log("  ✅ Deleted\n");
+  } else {
+    console.log("  No existing item type found\n");
+  }
+
+  // 2. Create item type
+  console.log("🛠️  Creating item type 'project'...");
+  const itemType = await client.itemTypes.create({
+    name: "Project",
+    api_key: "project",
+    all_locales_required: false,
+    draft_mode_active: true,
+    sortable: false,
+    tree: false,
+  });
+  console.log(`✅ Item type created: ${itemType.id}\n`);
+
+  // 3. Create fields
+  console.log("➕ Creating fields...");
+
+  const nameField = await client.fields.create(itemType.id, {
+    api_key: "name",
+    label: "Name",
+    field_type: "string",
+    validators: { required: {} },
+    appearance: { editor: "single_line", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ name");
+
+  const slugField = await client.fields.create(itemType.id, {
+    api_key: "slug",
+    label: "Slug",
+    field_type: "slug",
+    validators: {
+      slug_title_field: { title_field_id: nameField.id },
+      required: {},
+    },
+    appearance: { editor: "slug", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ slug");
+
+  const typeField = await client.fields.create(itemType.id, {
+    api_key: "project_type",
+    label: "Type",
+    field_type: "string",
+    validators: { required: {} },
+    appearance: { editor: "single_line", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ project_type");
+
+  const yearField = await client.fields.create(itemType.id, {
+    api_key: "year",
+    label: "Year",
+    field_type: "string",
+    validators: { required: {} },
+    appearance: { editor: "single_line", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ year");
+
+  const descriptionField = await client.fields.create(itemType.id, {
+    api_key: "description",
+    label: "Description",
+    field_type: "text",
+    validators: { required: {} },
+    appearance: { editor: "textarea", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ description");
+
+  const stackField = await client.fields.create(itemType.id, {
+    api_key: "stack",
+    label: "Stack",
+    field_type: "json",
+    validators: { required: {} },
+    appearance: { editor: "json", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ stack");
+
+  const bodyField = await client.fields.create(itemType.id, {
+    api_key: "body",
+    label: "Body",
+    field_type: "text",
+    validators: { required: {} },
+    appearance: { editor: "wysiwyg", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ body");
+
+  const imageField = await client.fields.create(itemType.id, {
+    api_key: "image",
+    label: "Image",
+    field_type: "file",
+    validators: { required: {} },
+    appearance: { editor: "file", parameters: {}, addons: [] },
+    localized: false,
+  });
+  console.log("  ✅ image\n");
+
+  // 4. Create project records
+  console.log("📦 Creating project records...\n");
+  for (const project of PROJECTS) {
+    console.log(`  Creating: ${project.name}`);
+
+    let uploadId: string | undefined;
+    try {
+      const upload = await client.uploads.createFromUrl({
+        url: project.imageUrl,
+        default_field_metadata: {
+          id: { alt: "", title: "", custom_data: {} },
+        },
+      });
+      uploadId = upload.id;
+      console.log(`    📤 Image uploaded: ${uploadId}`);
+    } catch (err) {
+      console.warn(`    ⚠️ Failed to upload image: ${err}`);
+    }
+
+    const item = await client.items.create({
+      item_type: { id: itemType.id, type: "item_type" },
+      name: project.name,
+      slug: project.slug,
+      project_type: project.type,
+      year: project.year,
+      description: project.description,
+      stack: JSON.stringify(project.stack),
+      body: project.body,
+      ...(uploadId ? { image: { upload_id: uploadId } } : {}),
+    });
+
+    console.log(`  ✅ ${project.name} created (id: ${item.id})\n`);
+  }
+
+  console.log("🎉 Migration complete!");
 }
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
