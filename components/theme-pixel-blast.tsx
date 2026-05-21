@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
-import { useTheme } from "next-themes";
-import { PixelBlast } from "./pixel-blast";
+import { useTheme } from "next-themes"
+import { PixelBlast } from "./pixel-blast"
 
 export function ThemePixelBlast() {
-  const { resolvedTheme } = useTheme();
-  const color = resolvedTheme === "light" ? "#252525" : "#fbfbfb";
+  const { resolvedTheme } = useTheme()
+  const color = resolvedTheme === "light" ? "#252525" : "#fbfbfb"
 
   return (
     <PixelBlast
       variant="square"
-      pixelSize={3}
+      pixelSize={2}
       color={color}
       patternScale={3.5}
       patternDensity={1.3}
@@ -23,5 +23,5 @@ export function ThemePixelBlast() {
       edgeFade={0.15}
       className="absolute inset-0 z-0"
     />
-  );
+  )
 }
