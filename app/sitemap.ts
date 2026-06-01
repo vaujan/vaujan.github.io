@@ -1,6 +1,8 @@
 import { getAllProjects } from "@/lib/datocms";
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getAllProjects();
   const baseUrl = "https://ahmadfauzan.dev";

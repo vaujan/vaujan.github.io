@@ -14,14 +14,17 @@ import {
 } from "@/components/ui/breadcrumb";
 import { notFound } from "next/navigation";
 
-export const dynamicParams = true;
-export const revalidate = 60;
+export const dynamic = "force-static";
+export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+export function generateStaticParams() {
+  return [
+    { slug: "monkeio" },
+    { slug: "patuhpdp" },
+    { slug: "digisign" },
+    { slug: "e-procurement" },
+    { slug: "frederica" },
+  ];
 }
 
 export async function generateMetadata({
