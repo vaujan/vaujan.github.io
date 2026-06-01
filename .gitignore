@@ -14,6 +14,7 @@
 # next.js
 /.next/
 /out/
+/dist/
 
 # production
 /build
@@ -31,6 +32,9 @@ pnpm-debug.log*
 # env files
 .env
 .env*.local
+
+# resume source files
+/resume/
 
 # typescript
 *.tsbuildinfo
