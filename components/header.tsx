@@ -28,7 +28,7 @@ export function Header() {
           asChild
         >
           <a
-            href="/resume"
+            href="https://docs.google.com/document/d/1lJnTL-BcdqL_L59PBi4A5vwY1ZhdvJEgfXPQ-6MXQjM/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Resume"

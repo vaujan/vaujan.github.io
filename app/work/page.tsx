@@ -1,8 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
-import { getAllProjects } from "@/lib/datocms";
 import { Separator } from "@/components/ui/separator";
-import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/scroll-reveal";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,9 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export default async function WorkPage() {
-  const projects = await getAllProjects();
-
+export default function WorkPage() {
   return (
     <main className="flex flex-col">
       <section className="mx-auto w-full max-w-2xl px-6 pt-24 pb-16 md:px-8 md:pt-28 md:pb-20">
@@ -52,42 +48,11 @@ export default async function WorkPage() {
       <Separator />
 
       <section className="mx-auto w-full max-w-2xl px-6 py-16 md:px-8 md:py-20">
-        <StaggerContainer
-          className="grid grid-cols-1 gap-10 md:grid-cols-2"
-          staggerDelay={0.1}
-        >
-          {projects.map((project) => (
-            <StaggerItem key={project.slug}>
-              <Link
-                href={`/work/${project.slug}`}
-                className="group flex flex-col gap-4"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-muted">
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 336px"
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h2 className="text-base font-medium text-foreground group-hover:text-accent-foreground">
-                      {project.name}
-                    </h2>
-                    <span className="shrink-0 text-xs text-muted-foreground">
-                      {project.year}
-                    </span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">
-                    {project.type}
-                  </span>
-                </div>
-              </Link>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        <div className="flex flex-col items-start gap-4">
+          <p className="text-base text-muted-foreground">
+            No projects here yet. Check back soon.
+          </p>
+        </div>
       </section>
     </main>
   );

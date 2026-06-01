@@ -68,9 +68,16 @@ export default function NowPage() {
                 Working on
               </h2>
               <p className="text-base text-muted-foreground">
-                Refining this portfolio and exploring creative coding with WebGL.
-                Building a new design system for a product team and experimenting
-                with real-time collaborative editing interfaces.
+                Building{" "}
+                <a
+                  href="https://monkeio.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline underline-offset-4 transition-colors hover:text-accent-foreground"
+                >
+                  Monkeio.com
+                </a>
+                , a deep work tracker currently in Beta. Also refining this portfolio and exploring creative coding with WebGL.
               </p>
             </div>
           </ScrollReveal>
@@ -122,7 +129,7 @@ export default function NowPage() {
                 Location
               </h2>
               <p className="text-base text-muted-foreground">
-                Based in Jakarta, Indonesia. Open to remote collaborations and
+                Based in Sorong, Southwest Papua. Open to remote collaborations and
                 select on-site engagements.
               </p>
             </div>

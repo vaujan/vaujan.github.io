@@ -1,24 +1,18 @@
-import Link from "next/link"
 import {
-  IconArrowRight,
-  IconMail,
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandX,
+  IconBrandInstagram,
 } from "@tabler/icons-react"
-import { getAllProjects } from "@/lib/datocms"
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { ThemePixelBlast } from "@/components/theme-pixel-blast"
+import { FeaturedProject } from "@/components/featured-project"
 import {
   ScrollReveal,
   StaggerContainer,
   StaggerItem,
 } from "@/components/scroll-reveal"
 
-export default async function Home() {
-  const projects = await getAllProjects()
-
+export default function Home() {
   return (
     <main className="flex flex-col">
       {/* Header */}
@@ -26,57 +20,51 @@ export default async function Home() {
         <ThemePixelBlast />
         <div className="relative z-10 mx-auto w-full max-w-2xl">
           <ScrollReveal delay={0.1}>
-            <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
-              Frontend Engineer
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              Ahmad Fauzan
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              Hey, I&apos;m Fauzan.
             </h1>
           </ScrollReveal>
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.15}>
             <p className="mt-1 text-base text-muted-foreground">
-              Design systems, creative tools, and products that respect their
-              users.
+              I build web interfaces and design systems.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.25}>
             <div className="mt-3 flex flex-wrap items-center gap-4">
               <a
-                href="mailto:hello@ahmadfauzan.dev"
+                href="mailto:buildfrombed@gmail.com"
                 className="text-sm text-foreground underline underline-offset-4 transition-colors hover:text-accent-foreground"
               >
-                hello@ahmadfauzan.dev
+                buildfrombed@gmail.com
               </a>
               <div className="flex items-center gap-2">
-                <a
-                  href="https://github.com/ahmadfauzan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                  aria-label="GitHub"
-                >
-                  <IconBrandGithub className="size-4" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/ahmadfauzan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                  aria-label="LinkedIn"
-                >
-                  <IconBrandLinkedin className="size-4" />
-                </a>
-                <a
-                  href="https://x.com/ahmadfauzan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                  aria-label="X / Twitter"
-                >
-                  <IconBrandX className="size-4" />
-                </a>
+              <a
+                href="https://github.com/vaujan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                aria-label="GitHub"
+              >
+                <IconBrandGithub className="size-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/amdfauzan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                aria-label="LinkedIn"
+              >
+                <IconBrandLinkedin className="size-4" />
+              </a>
+              <a
+                href="https://instagram.com/amd_fzn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                aria-label="Instagram"
+              >
+                <IconBrandInstagram className="size-4" />
+              </a>
               </div>
             </div>
           </ScrollReveal>
@@ -93,41 +81,106 @@ export default async function Home() {
               Experience
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="flex flex-col gap-8" staggerDelay={0.1}>
+          <StaggerContainer className="flex flex-col gap-10" staggerDelay={0.1}>
             <StaggerItem>
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-0.5">
                   <h3 className="text-base font-medium text-foreground">
-                    Senior Frontend Engineer
+                    Monkeio.com (Independent SaaS Project)
                   </h3>
-                  <span className="text-xs text-muted-foreground">
-                    2022 — Present
-                  </span>
+                  <span className="text-xs text-muted-foreground">Remote</span>
                 </div>
-                <p className="text-sm text-muted-foreground">TechCorp</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Leading the design system initiative across 5 product teams.
-                  Built a scalable component library on Radix UI and Tailwind
-                  CSS. Improved UI development time by 60% and achieved WCAG 2.1
-                  AA compliance across all components.
-                </p>
+                <div className="border-l-2 border-border pl-4">
+                  <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                    <h4 className="text-sm font-medium text-foreground">
+                      Fullstack Engineer & Designer
+                    </h4>
+                    <span className="text-xs text-muted-foreground">
+                      Jan 2025 — Apr 2026
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Built Monkeio.com, a productivity-focused SaaS application, independently managing product strategy, market research, UX design, branding, and full-stack development. Applied user-centered design principles to develop workflows, prioritize features, and improve product usability through iterative development.
+                  </p>
+                </div>
               </div>
             </StaggerItem>
+
             <StaggerItem>
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-0.5">
                   <h3 className="text-base font-medium text-foreground">
-                    Frontend Engineer
+                    Telkomsigma (PT Sigma Cipta Caraka)
                   </h3>
-                  <span className="text-xs text-muted-foreground">
-                    2020 — 2022
-                  </span>
+                  <span className="text-xs text-muted-foreground">Yogyakarta</span>
                 </div>
-                <p className="text-sm text-muted-foreground">StartupXYZ</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Built real-time collaborative features and creative tooling
-                  interfaces. Worked with WebGL, Web Audio API, and CRDTs.
-                </p>
+                <div className="flex flex-col gap-5 border-l-2 border-border pl-4">
+                  <div>
+                    <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                      <h4 className="text-sm font-medium text-foreground">
+                        UI/UX Engineer
+                      </h4>
+                      <span className="text-xs text-muted-foreground">
+                        Jul 2023 — Jul 2025
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Designed user flows, wireframes, and high-fidelity interfaces for 5+ enterprise applications across the Telkom Group and Telkomsigma internal platforms. Developed and maintained frontend features using Nuxt.js and Tailwind CSS for enterprise operational systems. Collaborated with developers and stakeholders to translate business requirements into implementation-ready user experiences and frontend solutions.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                      <h4 className="text-sm font-medium text-foreground">
+                        Microsoft L0 Support (Project Assignment)
+                      </h4>
+                      <span className="text-xs text-muted-foreground">
+                        Jan 2025 — Jul 2025
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Resolved first-level technical issues for 10–20 enterprise users per day across Microsoft services for enterprise client (Perum Bulog). Assisted users in troubleshooting technical issues, resolving operational blockers, and providing conference-call support when necessary. Communicated technical information clearly to non-technical users in professional environments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-base font-medium text-foreground">
+                    Marketing and Communication | FPSB UII
+                  </h3>
+                  <span className="text-xs text-muted-foreground">Yogyakarta</span>
+                </div>
+                <div className="flex flex-col gap-5 border-l-2 border-border pl-4">
+                  <div>
+                    <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                      <h4 className="text-sm font-medium text-foreground">
+                        Head of Creative Media
+                      </h4>
+                      <span className="text-xs text-muted-foreground">
+                        Apr 2023 — Feb 2024
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Led and coordinated a team of 8 members, ensuring timely delivery of creative projects. Established structured workflows using Figma Jam and Trello, improving team coordination and reducing project delays.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                      <h4 className="text-sm font-medium text-foreground">
+                        Staff of Creative Media
+                      </h4>
+                      <span className="text-xs text-muted-foreground">
+                        Jun 2020 — Apr 2022
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Created visual content using Adobe Creative Suite tools including Photoshop, Premiere Pro, Lightroom, and Illustrator. Produced more than 20 visual assets per week across multiple digital platforms.
+                    </p>
+                  </div>
+                </div>
               </div>
             </StaggerItem>
           </StaggerContainer>
@@ -136,7 +189,13 @@ export default async function Home() {
 
       <Separator />
 
-      {/* Index of Works */}
+      {/* Featured Project */}
+      <FeaturedProject />
+
+      <Separator />
+
+      {/* Index of Works — hidden for now */}
+      {/*
       <section className="flex flex-col px-6 py-16 md:px-8 md:py-20">
         <div className="mx-auto w-full max-w-2xl">
           <ScrollReveal>
@@ -184,28 +243,7 @@ export default async function Home() {
       </section>
 
       <Separator />
-
-      {/* Closing Note */}
-      <section className="flex flex-col justify-center px-6 py-16 md:px-8 md:py-20">
-        <div className="mx-auto w-full max-w-2xl">
-          <ScrollReveal>
-            <p className="text-base text-muted-foreground">
-              Currently available for select projects and collaborations. If you
-              have something meaningful to build, let&apos;s talk.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="mt-4">
-              <Button variant="outline" size="default" asChild>
-                <a href="mailto:hello@ahmadfauzan.dev">
-                  <IconMail className="size-4" />
-                  hello@ahmadfauzan.dev
-                </a>
-              </Button>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      */}
     </main>
   )
 }

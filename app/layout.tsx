@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s — Ahmad Fauzan",
   },
   description:
-    "Building thoughtful digital experiences at the intersection of design and engineering. Frontend engineer focused on design systems, creative tools, and products that respect their users.",
+    "Frontend engineer and UI designer. I build web interfaces, design systems, and creative tools.",
   keywords: [
     "frontend engineer",
     "design systems",
@@ -44,14 +44,13 @@ export const metadata: Metadata = {
     siteName: "Ahmad Fauzan",
     title: "Ahmad Fauzan — Frontend Engineer",
     description:
-      "Building thoughtful digital experiences at the intersection of design and engineering.",
+      "Frontend engineer and UI designer. I build web interfaces, design systems, and creative tools.",
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@ahmadfauzan",
     title: "Ahmad Fauzan — Frontend Engineer",
     description:
-      "Building thoughtful digital experiences at the intersection of design and engineering.",
+      "Frontend engineer and UI designer. I build web interfaces, design systems, and creative tools.",
   },
   robots: {
     index: true,

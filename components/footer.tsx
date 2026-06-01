@@ -1,25 +1,23 @@
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandX,
+  IconBrandInstagram,
 } from "@tabler/icons-react";
-import { Separator } from "@/components/ui/separator";
-
 const socialLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/ahmadfauzan",
+    href: "https://github.com/vaujan",
     icon: IconBrandGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/ahmadfauzan",
+    href: "https://www.linkedin.com/in/amdfauzan/",
     icon: IconBrandLinkedin,
   },
   {
-    label: "X / Twitter",
-    href: "https://x.com/ahmadfauzan",
-    icon: IconBrandX,
+    label: "Instagram",
+    href: "https://instagram.com/amd_fzn",
+    icon: IconBrandInstagram,
   },
 ];
 
@@ -27,8 +25,6 @@ export function Footer() {
   return (
     <footer className="px-6 py-16 md:px-8 md:py-20">
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-12">
-        <Separator />
-
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Left: Branding + Colophon */}
           <div className="flex flex-col gap-4">
@@ -36,11 +32,10 @@ export function Footer() {
               Ahmad Fauzan
             </p>
             <p className="max-w-xs text-xs leading-relaxed text-muted-foreground">
-              Frontend engineer focused on design systems, creative tools, and
-              products that respect their users.
+              I design and build web interfaces.
             </p>
             <p className="text-xs text-muted-foreground">
-              Built with Next.js, shadcn/ui, and careful attention to detail.
+              Built with Next.js, shadcn/ui, and DatoCMS.
             </p>
           </div>
 
