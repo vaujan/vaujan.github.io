@@ -11,258 +11,173 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "meridian-design-system",
-    name: "Meridian Design System",
-    type: "Design System",
+    slug: "monkeio",
+    name: "Monkeio",
+    type: "Productivity SaaS",
+    year: "2025",
+    description:
+      "A hassle-free deep work tracker built as an independent SaaS. Product strategy, UX design, branding, and full-stack development by a single person.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "shadcn/ui"],
+    body: `<p><strong>Monkeio</strong> is a productivity SaaS built from scratch as an independent project. It is a deep work tracker designed to help users focus and measure productive sessions without friction.</p>
+
+<h2>The origin</h2>
+
+<p>Most productivity tools are either too complex or too rigid. I wanted something that respects the user's workflow rather than forcing one. Monkeio was born from that idea — a tracker that gets out of the way so you can do the work.</p>
+
+<blockquote>The best productivity tool is the one you actually use.</blockquote>
+
+<h2>What I built</h2>
+
+<p>As the sole founder, I handled everything: product strategy, market research, UX design, branding, and full-stack engineering.</p>
+
+<h3>Key features</h3>
+
+<ol>
+<li>Simple session tracking with minimal UI overhead.</li>
+<li>Progress dashboards that surface meaningful patterns, not vanity metrics.</li>
+<li>Iterative feature prioritization driven by user-centered design principles.</li>
+<li>Responsive design that works seamlessly across desktop and mobile.</li>
+</ol>
+
+<h3>Technical stack</h3>
+
+<ul>
+<li><strong>Frontend</strong> — Next.js with TypeScript and Tailwind CSS</li>
+<li><strong>Backend</strong> — Supabase for auth, database, and real-time features</li>
+<li><strong>UI</strong> — shadcn/ui components with a custom minimal theme</li>
+<li><strong>Deployment</strong> — Vercel with automatic preview environments</li>
+</ul>
+
+<p>Monkeio is currently in Beta. It represents what one person can build when design thinking and engineering discipline meet.</p>`,
+    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=800&fit=crop",
+  },
+  {
+    slug: "patuhpdp",
+    name: "SentraPDP / PatuhPDP",
+    type: "UI/UX Design",
     year: "2024",
     description:
-      "A scalable component library and design system built for enterprise product teams. Focused on accessibility, consistency, and developer experience.",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Storybook", "Radix UI"],
-    body: `<p><strong>Meridian</strong> was born from a simple observation: every product team was rebuilding the same buttons, inputs, and layouts. I set out to create a unified design language that could serve multiple products while remaining flexible enough for custom needs.</p>
+      "A data protection compliance platform for enterprise clients. Designed end-to-end user flows and high-fidelity interfaces.",
+    stack: ["Figma", "Design Systems", "UX Writing"],
+    body: `<p><strong>SentraPDP / PatuhPDP</strong> is a data protection compliance platform built for enterprise clients navigating Indonesia's Personal Data Protection (PDP) regulations. I was responsible for the complete UI/UX design of the platform.</p>
 
 <h2>The challenge</h2>
 
-<p>We had five product teams, five different button styles, and zero shared vocabulary. Onboarding a new engineer meant learning five separate codebases. Something had to change.</p>
-
-<blockquote>Design systems are not about constraints. They are about freeing teams to focus on what matters.</blockquote>
+<p>Compliance software is notorious for being dense, intimidating, and hard to navigate. The goal was to turn a complex regulatory requirement into an intuitive operational tool that legal and operational teams could actually use.</p>
 
 <h2>The approach</h2>
 
-<p>I started with primitives — <code>color</code>, <code>type</code>, <code>space</code>, and <code>shadow</code> tokens — then composed them into 40+ components. Each component is built on <strong>Radix UI</strong> primitives for accessibility, styled with Tailwind CSS, and documented in Storybook.</p>
+<p>I started by mapping the compliance workflow from data mapping to reporting. Every screen was designed to reduce cognitive load and guide users through multi-step processes without overwhelm.</p>
 
-<h3>Key architectural decisions</h3>
+<h3>Key design decisions</h3>
 
 <ol>
-<li>Tokens live in a single source of truth (Style Dictionary).</li>
-<li>Components expose a <code>className</code> escape hatch for one-off overrides.</li>
-<li>Every component ships with an axe-core test and a visual regression snapshot.</li>
-<li>Theming is runtime, not build-time.</li>
+<li>Dashboard-first navigation that surfaces actionable tasks, not documents.</li>
+<li>Wizard-style flows for complex compliance assessments.</li>
+<li>Consistent design system applied across the platform for predictability.</li>
+<li>UX writing that replaces legal jargon with plain language.</li>
 </ol>
 
-<h3>Key achievements</h3>
+<h3>Outcomes</h3>
 
 <ul>
-<li>Reduced UI development time by <strong>60%</strong> across 5 product teams</li>
-<li>Achieved <strong>WCAG 2.1 AA</strong> compliance across all components</li>
-<li>Built automated visual regression testing with Chromatic</li>
-<li>Created a theming system supporting light, dark, and custom brand themes</li>
+<li>Reduced time-to-complete for core compliance workflows</li>
+<li>Improved stakeholder confidence in audit readiness</li>
+<li>Design system adopted by adjacent product teams</li>
 </ul>
 
-<pre><code>import { Button } from "@meridian/ui";
-
-export default function App() {
-  return &lt;Button variant="primary" size="lg"&gt;Get started&lt;/Button&gt;;
-}</code></pre>
-
-<p>Today, Meridian powers the UI of every product at the company. New teams spin up in hours, not weeks.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=800&fit=crop",
+<p>The platform is now in active use by multiple enterprise clients within the Telkom Group ecosystem.</p>`,
+    imageUrl: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=1200&h=800&fit=crop",
   },
   {
-    slug: "flux-workflow-engine",
-    name: "Flux Workflow Engine",
-    type: "Open Source Tool",
+    slug: "digisign",
+    name: "Digisign",
+    type: "UI/UX Design",
     year: "2024",
     description:
-      "An open-source visual workflow builder for automation. Drag, connect, and deploy workflows without writing code.",
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "WebSockets"],
-    body: `<p><strong>Flux</strong> is a visual programming environment that lets anyone build automated workflows. Inspired by node-based editors in creative software, I wanted to bring that same intuitive experience to business automation.</p>
+      "A digital signature platform designed for BUMN and state-owned enterprises. End-to-end UX from document upload to signature verification.",
+    stack: ["Figma", "Prototyping", "Design Systems"],
+    body: `<p><strong>Digisign</strong> is a digital signature platform tailored for BUMN (state-owned enterprises) and large government institutions. I led the UI/UX design for the entire product, from document upload flows to signature verification.</p>
 
-<h2>Why visual programming?</h2>
+<h2>Designing for trust</h2>
 
-<p>Most automation tools are either too simple (Zapier) or too complex (Airflow). Flux sits in the middle: powerful enough for engineers, intuitive enough for operations teams.</p>
+<p>Digital signatures carry legal weight. Every interaction needed to communicate security, clarity, and trustworthiness without feeling bureaucratic.</p>
 
-<blockquote>The best tools are the ones you can explain to your manager in five minutes.</blockquote>
+<h2>Core flows</h2>
 
-<h2>Core engine</h2>
+<p>I designed the complete signature lifecycle: document preparation, multi-party signing sequences, audit trail visualization, and certificate management.</p>
 
-<p>Workflows are directed acyclic graphs stored as JSON. The runtime executes them with a custom scheduler that handles retries, timeouts, and parallel branches.</p>
-
-<h3>Runtime features</h3>
+<h3>Key design contributions</h3>
 
 <ol>
-<li>Each node runs in an isolated sandbox (Node.js <code>isolated-vm</code>).</li>
-<li>State is persisted to PostgreSQL with optimistic locking.</li>
-<li>WebSocket streams push real-time logs to the dashboard.</li>
-<li>Deployments are atomic — rollback on failure.</li>
+<li>Simplified document upload with progress indication and error recovery.</li>
+<li>Visual signing sequence that makes multi-party workflows transparent.</li>
+<li>Audit trail interface that presents legal logs in a scannable format.</li>
+<li>Responsive design supporting both desktop offices and mobile approvals.</li>
 </ol>
 
-<h3>Integrations</h3>
-
-<ul>
-<li><strong>50+ native integrations</strong> (Slack, Notion, GitHub, Airtable, etc.)</li>
-<li>Custom webhook nodes with signature verification</li>
-<li>OAuth 2.0 token refresh handled automatically</li>
-<li>Community-driven plugin marketplace</li>
-</ul>
-
-<pre><code>// A simple Flux workflow
-{
-  "nodes": [
-    { "id": "trigger", "type": "webhook" },
-    { "id": "filter", "type": "condition", "expr": "payload.status === 'paid'" },
-    { "id": "notify", "type": "slack", "channel": "#sales" }
-  ],
-  "edges": [
-    { "from": "trigger", "to": "filter" },
-    { "from": "filter", "to": "notify" }
-  ]
-}</code></pre>
-
-<p>Within three months of launch, Flux reached <strong>1,200+ GitHub stars</strong> and was featured on Hacker News. Today it processes over 2 million workflows per month.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+<p>Digisign is actively used by enterprise clients for legally binding digital document workflows.</p>`,
+    imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=800&fit=crop",
   },
   {
-    slug: "atlas-knowledge-base",
-    name: "Atlas Knowledge Base",
-    type: "Productivity App",
+    slug: "e-procurement",
+    name: "E-procurement",
+    type: "UI/UX Design",
     year: "2023",
     description:
-      "A minimal, fast wiki for engineering teams. Markdown-first, real-time collaborative editing, and instant search.",
-    stack: ["Next.js", "TypeScript", "Prisma", "SQLite", "TipTap"],
-    body: `<p><strong>Atlas</strong> was designed for teams who outgrow Google Docs but don't need the complexity of Confluence. It's a wiki that feels like writing in your favorite text editor — fast, minimal, and built for engineers.</p>
+      "An enterprise procurement system for large organizations. Designed procurement workflows from requisition to vendor selection.",
+    stack: ["Figma", "Wireframing", "UX Writing"],
+    body: `<p><strong>E-procurement</strong> is an enterprise procurement system designed for large organizations managing high-volume purchasing workflows. I was the UI/UX designer responsible for translating complex procurement processes into usable interfaces.</p>
 
-<h2>Editor architecture</h2>
+<h2>The complexity</h2>
 
-<p>The heart of Atlas is a custom <strong>TipTap</strong> editor built on ProseMirror. We extended it with embeds, @mentions, and a slash-command palette that feels native.</p>
+<p>Enterprise procurement involves multiple approval tiers, vendor comparisons, budget checks, and compliance requirements. The interface had to serve both operational staff and decision-makers without confusing either.</p>
 
-<blockquote>Documentation should live where work happens, not in a separate tab you forget to open.</blockquote>
+<h2>The solution</h2>
 
-<h2>Search that actually works</h2>
+<p>I broke the system into role-based views: requesters see simplified forms, approvers see decision dashboards, and procurement officers see vendor and contract management tools.</p>
 
-<p>Most team wikis have terrible search. Atlas uses <strong>SQLite FTS5</strong> with custom ranking logic. Results appear in under 50ms, even across tens of thousands of pages.</p>
-
-<h3>Performance strategy</h3>
+<h3>Key design decisions</h3>
 
 <ol>
-<li>Pages are rendered at build time with <strong>Next.js ISR</strong>.</li>
-<li>Edge caching via Vercel's CDN keeps TTFB under 100ms.</li>
-<li>SQLite is embedded — no external database to manage.</li>
-<li>Incremental static regeneration updates pages in the background.</li>
+<li>Role-based dashboards that surface only relevant actions.</li>
+<li>Vendor comparison views with side-by-side evaluation criteria.</li>
+<li>Approval workflow visualization showing status at a glance.</li>
+<li>Responsive forms that adapt to procurement complexity levels.</li>
 </ol>
 
-<h3>Notable features</h3>
-
-<ul>
-<li><strong>Real-time collaboration</strong> powered by Yjs CRDT</li>
-<li>Bidirectional <code>[[links]]</code> for networked note-taking</li>
-<li>GitHub-flavored markdown with custom table and math extensions</li>
-<li>Dark mode support out of the box</li>
-</ul>
-
-<pre><code>// Atlas page schema (Prisma)
-model Page {
-  id        String   @id @default(cuid())
-  title     String
-  slug      String   @unique
-  content   Json     // ProseMirror document tree
-  links     Page[]   @relation("Backlinks")
-  createdAt DateTime @default(now())
-}</code></pre>
-
-<p>Today, Atlas serves as the single source of truth for documentation across the engineering org. New hires ship their first doc within an hour.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=1200&h=800&fit=crop",
+<p>The system is deployed across enterprise clients, streamlining procurement from requisition to vendor selection.</p>`,
+    imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop",
   },
   {
-    slug: "northstar-analytics",
-    name: "Northstar Analytics",
-    type: "Data Dashboard",
+    slug: "frederica",
+    name: "Frederica (Risk Management System)",
+    type: "UI/UX Design",
     year: "2023",
     description:
-      "Real-time infrastructure monitoring dashboard. Track metrics, set alerts, and visualize system health at a glance.",
-    stack: ["React", "TypeScript", "D3.js", "Go", "InfluxDB"],
-    body: `<p><strong>Northstar</strong> solves the problem of alert fatigue in infrastructure monitoring. Instead of hundreds of disconnected metrics, it surfaces what actually matters using intelligent anomaly detection.</p>
+      "An enterprise risk management system. Designed risk assessment dashboards, reporting workflows, and mitigation tracking interfaces.",
+    stack: ["Figma", "Design Systems", "Data Visualization"],
+    body: `<p><strong>Frederica</strong> is an enterprise risk management system designed to help organizations identify, assess, and mitigate operational risks. I was the UI/UX designer for the platform, designing everything from risk assessment dashboards to mitigation tracking interfaces.</p>
 
-<h2>Clarity under pressure</h2>
+<h2>Designing for risk</h2>
 
-<p>When a production system is failing, you don't need more dashboards. You need the right signal, right now. Northstar's visual design is built around that constraint.</p>
+<p>Risk management is about visibility and action. The interface had to make risk levels immediately understandable while guiding users through structured assessment and response workflows.</p>
 
-<blockquote>Every pixel on the screen should justify its existence during an incident.</blockquote>
+<h2>Core modules</h2>
 
-<h2>Real-time pipeline</h2>
+<p>I designed modules for risk identification, impact scoring, mitigation planning, and executive reporting. Each served a different user persona from operational risk officers to C-level executives.</p>
 
-<p>Metrics stream from <strong>InfluxDB</strong> through a Go-powered aggregator, then to the browser via WebSocket. The frontend renders with a custom D3.js layer optimized for 60fps at 10k+ data points.</p>
-
-<h3>Anomaly detection</h3>
+<h3>Key design contributions</h3>
 
 <ol>
-<li>Baseline is computed with a 24-hour rolling window per metric.</li>
-<li>Seasonal decomposition removes daily/weekly patterns.</li>
-<li>Z-score threshold triggers only on statistically significant deviations.</li>
-<li>Correlated alerts are grouped into a single incident.</li>
+<li>Risk heatmap dashboards with color-coded severity indicators.</li>
+<li>Structured assessment forms that guide users through scoring criteria.</li>
+<li>Mitigation tracking with timeline and responsibility assignment.</li>
+<li>Executive reporting views with high-level summaries and drill-down capability.</li>
 </ol>
 
-<h3>Dashboard features</h3>
-
-<ul>
-<li><strong>Sub-second</strong> metric updates via WebSocket streaming</li>
-<li>Custom D3.js charts with canvas fallback for large datasets</li>
-<li>Drag-and-drop alert rule builder</li>
-<li>Auto-generated incident summaries with root-cause timeline</li>
-</ul>
-
-<pre><code>// Alert rule engine (Go)
-func Evaluate(rule Rule, point Metric) (Alert, bool) {
-  baseline := rollingMean(rule.Window, rule.MetricID)
-  deviation := math.Abs(point.Value - baseline) / baseline.StdDev()
-  if deviation > rule.Threshold {
-    return NewAlert(rule, point), true
-  }
-  return Alert{}, false
-}</code></pre>
-
-<p>After deployment, client teams reduced their mean time to detection (MTTD) by <strong>40%</strong> and cut false-positive alerts by more than half.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
-  },
-  {
-    slug: "signal-studio",
-    name: "Signal Studio",
-    type: "Creative Tool",
-    year: "2022",
-    description:
-      "A creative toolkit for generative art and audio visualization. Bridge the gap between code and canvas.",
-    stack: ["React", "TypeScript", "WebGL", "Web Audio API", "Canvas API"],
-    body: `<p><strong>Signal Studio</strong> is where creative coding meets professional tooling. It provides a live-coding environment for generative graphics and audio-reactive visuals — a bridge between the code editor and the canvas.</p>
-
-<h2>The idea</h2>
-
-<p>Most creative tools force a choice: power or accessibility. Signal Studio gives you both. Write GLSL shaders, patch audio-reactive parameters, and see the result instantly.</p>
-
-<blockquote>Code is a creative medium. The screen is just the canvas.</blockquote>
-
-<h2>Rendering engine</h2>
-
-<p>The core is a custom <strong>WebGL</strong> renderer written from scratch. It handles 100k+ particles at 60fps, supports instanced geometry, and compiles shaders on the fly.</p>
-
-<h3>Audio analysis</h3>
-
-<ol>
-<li>FFT data is streamed from the Web Audio API in real time.</li>
-<li>Frequency bins are mapped to shader uniforms via the modulation graph.</li>
-<li>Smoothing and peak detection prevent jitter in reactive visuals.</li>
-<li>MIDI clock support keeps everything in sync with hardware.</li>
-</ol>
-
-<h3>Export pipeline</h3>
-
-<ul>
-<li><strong>Video</strong> — H.264/HEVC via MediaRecorder with lossless intermediate frames</li>
-<li><strong>GIF</strong> — color-optimized palette with dithering</li>
-<li><strong>Live</strong> — Syphon/Spout output for VJ software integration</li>
-<li><strong>Image</strong> — PNG sequence at 4K resolution</li>
-</ul>
-
-<pre><code>// A simple audio-reactive shader
-uniform float u_time;
-uniform float u_bass;
-
-void main() {
-  float pulse = sin(u_time * 10.0) * u_bass;
-  vec3 color = vec3(0.5 + pulse, 0.2, 0.8);
-  gl_FragColor = vec4(color, 1.0);
-}</code></pre>
-
-<p>Signal Studio was featured on <strong>Chrome Experiments</strong> and <strong>Codrops</strong>. It is now used by visual artists and musicians for live performances worldwide.</p>`,
-    imageUrl: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=1200&h=800&fit=crop",
+<p>Frederica is in active use within the Telkom Group, supporting enterprise-wide risk management operations.</p>`,
+    imageUrl: "https://images.unsplash.com/photo-1504868584819-f8e8b4b0ba5d?w=1200&h=800&fit=crop",
   },
 ];
 
