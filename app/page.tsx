@@ -3,7 +3,7 @@ import {
   IconBrandLinkedin,
   IconBrandInstagram,
 } from "@tabler/icons-react"
-import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 import { ThemePixelBlast } from "@/components/theme-pixel-blast"
 import { FeaturedProject } from "@/components/featured-project"
 import {
@@ -38,40 +38,38 @@ export default function Home() {
                 buildfrombed@gmail.com
               </a>
               <div className="flex items-center gap-2">
-              <a
-                href="https://github.com/vaujan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                aria-label="GitHub"
-              >
-                <IconBrandGithub className="size-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/amdfauzan/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                aria-label="LinkedIn"
-              >
-                <IconBrandLinkedin className="size-4" />
-              </a>
-              <a
-                href="https://instagram.com/amd_fzn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                aria-label="Instagram"
-              >
-                <IconBrandInstagram className="size-4" />
-              </a>
+                <a
+                  href="https://github.com/vaujan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  aria-label="GitHub"
+                >
+                  <IconBrandGithub className="size-4" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/amdfauzan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  aria-label="LinkedIn"
+                >
+                  <IconBrandLinkedin className="size-4" />
+                </a>
+                <a
+                  href="https://instagram.com/amd_fzn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  aria-label="Instagram"
+                >
+                  <IconBrandInstagram className="size-4" />
+                </a>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
-
-      <Separator />
 
       {/* Experience */}
       <section className="flex flex-col px-6 py-16 md:px-8 md:py-20">
@@ -187,12 +185,92 @@ export default function Home() {
         </div>
       </section>
 
-      <Separator />
+      {/* Capabilities */}
+      <section className="flex flex-col px-6 py-16 md:px-8 md:py-20">
+        <div className="mx-auto w-full max-w-2xl">
+          <ScrollReveal>
+            <h2 className="mb-10 text-xs font-medium tracking-widest text-muted-foreground uppercase">
+              Capabilities
+            </h2>
+          </ScrollReveal>
+          <StaggerContainer className="flex flex-col gap-8" staggerDelay={0.1}>
+            <StaggerItem>
+              <div className="flex flex-col gap-3">
+                <h3 className="text-sm font-medium text-foreground">Frontend</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    TypeScript
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    React
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Next.js
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    SvelteKit
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Nuxt.js
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Tailwind CSS
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Shadcn/ui
+                  </Badge>
+                </div>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="flex flex-col gap-3">
+                <h3 className="text-sm font-medium text-foreground">Backend & Data</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Node.js
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    MongoDB
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Supabase
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    SQLite
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Headless CMS
+                  </Badge>
+                </div>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="flex flex-col gap-3">
+                <h3 className="text-sm font-medium text-foreground">Design</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Figma
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Design Systems
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    UX Writing
+                  </Badge>
+                  <Badge variant="outline" className="h-auto rounded-md px-3.5 py-1.5 text-sm font-normal text-muted-foreground">
+                    Adobe Creative Suite
+                  </Badge>
+                </div>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
+        </div>
+      </section>
 
       {/* Featured Project */}
       <FeaturedProject />
-
-      <Separator />
 
       {/* Index of Works — hidden for now */}
       {/*
@@ -241,8 +319,6 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-
-      <Separator />
       */}
     </main>
   )
