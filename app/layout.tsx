@@ -36,11 +36,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Ahmad Fauzan" }],
   creator: "Ahmad Fauzan",
-  metadataBase: new URL("https://ahmadfauzan.dev"),
+  metadataBase: new URL("https://vaujan.github.io"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ahmadfauzan.dev",
+    url: "https://vaujan.github.io",
     siteName: "Ahmad Fauzan",
     title: "Ahmad Fauzan — Frontend Engineer",
     description:

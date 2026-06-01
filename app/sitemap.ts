@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getAllProjects();
-  const baseUrl = "https://ahmadfauzan.dev";
+  const baseUrl = "https://vaujan.github.io";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
